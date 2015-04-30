@@ -4,6 +4,8 @@
 
 module GLPK
 
+using Compat
+
 ## Exports
 #{{{
 export
@@ -233,7 +235,7 @@ end
 # one)
 function version()
     vstr = bytestring(@glpk_ccall version Ptr{Cchar} ())
-    return tuple(map(x->parseint(x), split(vstr, '.'))...)
+    return tuple(map(x->parse(Int, x), split(vstr, '.'))...)
 end
 
 if version() != (MAJOR_VERSION, MINOR_VERSION)

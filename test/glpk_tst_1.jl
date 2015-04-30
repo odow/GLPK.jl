@@ -167,8 +167,8 @@ function glpk_tst_1()
     param.msg_lev = GLPK.MSG_ERR
     param.presolve = GLPK.ON
     GLPK.init_smcp(param)
-    param["msg_lev"] = GLPK.MSG_ERR
-    param["presolve"] = GLPK.ON
+    param.msg_lev = GLPK.MSG_ERR
+    param.presolve = GLPK.ON
 
     # verify status before solving
     @test GLPK.get_status(lp) == GLPK.UNDEF
